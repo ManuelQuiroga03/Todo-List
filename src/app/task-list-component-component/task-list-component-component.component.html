@@ -1,0 +1,21 @@
+<div class="row mt-5 mb-5">
+    <div class="col">
+        <div class="titulo">
+            <h1 class="titulo__tareas">Administración de Tareas</h1>
+        </div>
+    </div>
+    <app-task-form-component (itemListUpdated)="onItemListUpdated($event)"></app-task-form-component>
+    <hr>
+    <div class="row mt-4 rounded bg-white">
+        <div class=" col-12"> 
+            <ul *ngFor="let item of itemList">
+                <div class="item">
+                    <input type="checkbox" name="" id="">
+                    <li>{{ item }}</li>
+                    <button>Editar</button>
+                </div>
+                
+            </ul>
+        </div> 
+    </div> 
+</div>

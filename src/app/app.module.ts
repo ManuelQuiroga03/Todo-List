@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TaskListComponentComponentComponent } from './task-list-component-component/task-list-component-component.component';
+import { TaskFormComponentComponent } from './task-form-component/task-form-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskListComponentComponentComponent,
+    TaskFormComponentComponent,
   ],
   imports: [
     BrowserModule,
