@@ -9,23 +9,20 @@
     <div class="row mt-4 rounded bg-white">
         <div class=" col-12"> 
             <ul *ngFor="let item of tasks; let i = index">
-                <div class="task">
+                <div class="task" [class.completed]="item.status === true">
                     <div class="task__Body" style="justify-content: space-between;">
-                        <div class="card-title">
-                            <h3>{{item}}</h3>
-                        </div>
-                        <div class="btngroup" role="group" aria-label="Acciones">
-                            <button type="button" class="btn btnCustom btn-danger" (click)="deleteTask(i)"><i class="fas fa-trash"></i></button>
-                            <button type="button" class="btn btnCustom btn-secondary" (click)="editTask(i)"><i class="fas fa-edit"></i></button>
-                            <button type="button" class="btn btnCustom btn-success" (click)="finishTask(i)"><i class="fas fa-check"></i></button>
+                        <div class="card-title" style="display: flex; gap: 10px;">
+                            <h3>{{item.name}}</h3>
+                            <div class="" style="border-left: solid 1px grey;"></div>
+                            <h3>{{ item.status ? 'Completado' : 'Pendiente' }}</h3>
+                        </div>                          
+                        <div class="btngroup" role="group" aria-label="Acciones" *ngIf="item.status === false">
+                            <button type="button" class="btn btnCustom btn-danger" (click)="deleteTask(i)"><i class="fas fa-trash" style="width: 16px; height: 16px;"></i></button>
+                            <!-- <button type="button" class="btn btnCustom btn-secondary"  data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit" style="width: 16px; height: 16px;"></i></button> -->
+                            <button type="button" class="btn btnCustom btn-success" (click)="finishTask(i)"><i class="fas fa-check" style="width: 16px; height: 16px;"></i></button>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="card item">
-                    <li>{{ item }}</li>
-                    <button>Editar</button>
-                    <button class="btn btn-danger" (click)="deleteTask(i)">Eliminar</button>
-                </div> -->
             </ul>
         </div> 
     </div> 

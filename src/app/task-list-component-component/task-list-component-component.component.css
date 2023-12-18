@@ -6,11 +6,15 @@ li{
     justify-content: space-between;
 }
 .task{
+    padding: 8px;
+    border: solid 1px;
+    border-radius: 10px;
     justify-content: space-between;
     display: flex;
 }
 .task__Body{
     display: flex;
+    width: 100%;
 }
 .btngroup{
     gap: 8px;
@@ -18,4 +22,11 @@ li{
 }
 .btnCustom{
     margin: 4px;
+    border-radius: 50%;
 }
+.completed {
+    color: #FFF;
+    background-color: rgba(0, 128, 0, 0.5);
+    opacity: 1;
+}
+  

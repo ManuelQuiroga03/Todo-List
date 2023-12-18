@@ -1,3 +1,8 @@
+interface Task {
+  name: string;
+  status: boolean;
+}
+
 import { Component, OnInit } from '@angular/core';
 import { TaskServiceService } from '../task-service.service';
 
@@ -8,8 +13,8 @@ import { TaskServiceService } from '../task-service.service';
 })
 export class TaskListComponentComponentComponent implements OnInit {
 
-  tasks: string[] = [];
-
+  tasks: Task[] = [];
+  taskStatus: boolean[] = [];
   constructor(private taskService: TaskServiceService){}
 
   ngOnInit(): void {
@@ -21,16 +26,14 @@ export class TaskListComponentComponentComponent implements OnInit {
     this.tasks = this.taskService.getTasks();
   }
 
-  editTask(index: number){
+  // editTask(index: number){
 
-  }
-
-  finishTask(index: number){
-    
-  }
-
-  // onItemListUpdated(updatedList: string[]): void {
-  //     this.itemList = updatedList;
-  //     console.log(this.itemList);
   // }
+
+  finishTask(index: number): void {
+    if (index >= 0 && index < this.tasks.length) {
+      this.taskService.finishTask(index); 
+    }
+  }
+
 }
