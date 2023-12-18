@@ -1,17 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TaskServiceService } from '../task-service.service';
 
 @Component({
   selector: 'app-task-list-component-component',
   templateUrl: './task-list-component-component.component.html',
   styleUrls: ['./task-list-component-component.component.css']
 })
-export class TaskListComponentComponentComponent {
+export class TaskListComponentComponentComponent implements OnInit {
 
-  itemList: string[] = [];
+  tasks: string[] = [];
 
-  onItemListUpdated(updatedList: string[]): void {
-      this.itemList = updatedList;
-      console.log(this.itemList);
-      
+  constructor(private taskService: TaskServiceService){}
+
+  ngOnInit(): void {
+    this.tasks = this.taskService.getTasks();
   }
+
+  deleteTask(index: number): void{
+    this.taskService.deleteTask(index);
+    this.tasks = this.taskService.getTasks();
+  }
+
+  editTask(index: number){
+
+  }
+
+  finishTask(index: number){
+    
+  }
+
+  // onItemListUpdated(updatedList: string[]): void {
+  //     this.itemList = updatedList;
+  //     console.log(this.itemList);
+  // }
 }

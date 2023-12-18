@@ -5,3 +5,17 @@ li{
     display: flex;
     justify-content: space-between;
 }
+.task{
+    justify-content: space-between;
+    display: flex;
+}
+.task__Body{
+    display: flex;
+}
+.btngroup{
+    gap: 8px;
+    justify-content: flex-end;
+}
+.btnCustom{
+    margin: 4px;
+}
